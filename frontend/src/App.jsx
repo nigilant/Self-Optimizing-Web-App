@@ -3,8 +3,8 @@ import axios from 'axios'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Area, AreaChart } from 'recharts'
 import { Activity, Server, Users, Cpu, ShieldCheck, ShieldAlert, AlertTriangle, Image as ImageIcon, ZapOff, ShoppingBag, ArrowRight, Download, Database } from 'lucide-react'
 
-const API_URL = 'http://127.0.0.1:8000'
-const WS_URL = 'ws://127.0.0.1:8000/ws/metrics'
+const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000'
+const WS_URL = import.meta.env.VITE_WS_URL || 'ws://127.0.0.1:8000/ws/metrics'
 
 function App() {
   const [metrics, setMetrics] = useState({ cpu: 0, memory: 0, active_users: 0, queries_prevented: 0, optimizing: false, system_state: "NORMAL", recent_logs: [] })
